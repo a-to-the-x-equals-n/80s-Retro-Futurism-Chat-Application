@@ -1,0 +1,3 @@
+curses
+python-dotenv
+# pygame
