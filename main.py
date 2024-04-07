@@ -4,7 +4,9 @@ import sys
 
 
 def main():
-
+    """
+    Main function to initialize the program.
+    """
     x,y = util.terminal_size()
     
     init_screen(x,y)
@@ -12,6 +14,13 @@ def main():
 
 
 def init_screen(x,y):
+    """
+    Initialize the screen with animated text effects.
+
+    Args:
+        x (int): The number of rows in the terminal.
+        y (int): The number of columns in the terminal.
+    """
     tunnel_thread = tunnel(x//2,y)
     dark_thread = dark(x//2,y)
 
@@ -27,7 +36,13 @@ def init_screen(x,y):
 
 @util.threaded
 def tunnel(x, y):
+    """
+    Function to animate 'tunnel' text.
 
+    Args:
+        x (int): The starting row position.
+        y (int): The starting column position.
+    """
     tunnel = util.tunnel.split('\n')
     start = x
     step = 0
@@ -51,7 +66,13 @@ def tunnel(x, y):
 
 @util.threaded
 def dark(x, y):
+    """
+    Function to animate 'dark' text.
 
+    Args:
+        x (int): The starting row position.
+        y (int): The starting column position.
+    """
     dark = util.dark.split('\n')    
     start = x-len(dark)
     step = 0
