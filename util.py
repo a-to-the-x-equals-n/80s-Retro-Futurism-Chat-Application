@@ -3,7 +3,7 @@ import os
 import threading
 import shutil
 
-
+# Decorator used to create new threads
 def threaded(func):
     def wrapper(*args, **kwargs):
         thread = threading.Thread(target = func, args = args, kwargs = kwargs)
@@ -11,32 +11,12 @@ def threaded(func):
         return thread
     return wrapper
 
-# @threaded
-# def task1():
-#     print("Executing task 1...")
-# @threaded
-# def task2():
-#     print("Executing task 2...")
-# thread1.join()
-# thread2.join()
-
-
-# def terminal_size():
-
-#     # Initialize curses
-#     stdscr = curses.initscr()
-#     # Get terminal size
-#     y, x = stdscr.getmaxyx()
-#     # Clean up curses
-#     curses.endwin()
-    
-#     return y, x
-
-
+# Get the size of the current terminal the python code is executed in
 def terminal_size():
     columns, rows = shutil.get_terminal_size()
     return rows, columns  # Return rows first, then columns
 
+# Clear terminal 
 def clear():
     os.system('clear' if os.name == 'posix' else 'cls')
 
