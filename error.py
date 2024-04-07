@@ -32,21 +32,3 @@ class EnvFileError(Exception):
 
         # Call 'log' function to record the error
         log(self.line_number, self.message)
-
-
-
-
-# Custom exception class for errors related to email sending
-class EmailSendingError(Exception):
-
-    # Constructor method for initializing 'EmailSendingError'
-    def __init__(self, message):
-
-        # error message
-        self.message = message 
-
-        # line number where error occurred
-        self.line_number = inspect.currentframe().f_back.f_lineno 
-
-        # Call 'log' function to record the error
-        log(self.line_number, self.message)
