@@ -4,7 +4,7 @@ import os
 
 
 # Constructs the absolute path to the log.txt file
-log_file_path = os.path.join(os.path.dirname(__file__), "docs/log.txt")
+log_file_path = os.path.join(os.path.dirname(__file__), "logs/log.txt")
 
 
 # Opens 'log.txt' and appends the error
