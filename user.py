@@ -18,6 +18,12 @@ class User:
     def username(self):
         pass
 
+    # TODO: Each user will have a host server listening for other clients attemption
+    # to connect/message them
+    def server_init(self):
+        pass
+    def client_init(self):
+        pass
     # Return a string representation of the User.username
     def __repr__(self):
         return f'{self.username}'
