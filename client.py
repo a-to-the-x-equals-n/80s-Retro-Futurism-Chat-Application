@@ -25,7 +25,6 @@ def main():
 
     try:
 
-
         print("\n\n\t[ file: 'HAL_9000.html' ]")
         filename = input("\n\tEnter filename to request: ")
         # filename = 'HAL_9000.html'
@@ -39,7 +38,6 @@ def main():
         # Receive response
         response = client_socket.recv(4096)
        
-
         # Find the index of the blank line separating headers and content
         blank_line_index = response.find(b'\r\n\r\n')
 
@@ -67,7 +65,5 @@ def main():
 
 
 if __name__ == "__main__":
-
     ABSOLUTE_PATH = Path(os.path.dirname(os.path.abspath(__file__)))
-
     main()

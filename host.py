@@ -9,15 +9,11 @@ def handle_request(client_socket):
     # Receive the HTTP request from the client
     request = client_socket.recv(1024).decode()
     
-
     # Extract the path of the requested file from the HTTP request
     try:
-
         filename = request.split()[1].strip("/")
-        
 
     except IndexError:
-
         # Bad Request
         client_socket.sendall("HTTP/1.1 400 Bad Request\r\n\r\n".encode())
 
@@ -62,10 +58,8 @@ def main():
     # Create socket
     server_socket = s.socket(s.AF_INET, s.SOCK_STREAM)
 
-
     # Binds 'server_socket' to the host IP and port number
     server_socket.bind((HOST, PORT))
-
 
     # Listening socket
     server_socket.listen(1)
@@ -73,9 +67,7 @@ def main():
     # Timeout set to 30 seconds
     server_socket.settimeout(30)  
 
-
     try:
-
         while listening:
 
             # Accept incoming connection
@@ -90,11 +82,9 @@ def main():
 
     # Handles when HAL goes back to sleep
     except s.timeout:
-
         print("TIMEOUT: HAL 9000 went back to sleep...")
 
     finally:
-
         # Close the server socket
         server_socket.close()
 
@@ -104,6 +94,5 @@ if __name__ == "__main__":
     HOST = 'localhost'
     PORT = 8080
     ABSOLUTE_PATH = Path(os.path.dirname(os.path.abspath(__file__)))
-    
 
     main()
