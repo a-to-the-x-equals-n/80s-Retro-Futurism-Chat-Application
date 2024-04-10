@@ -6,9 +6,8 @@ import time
 import threading
 
 
-username = "Logan"
 
-def chat(stdscr):
+def chat(stdscr, user):
     curses.curs_set(0)  # Show the cursor
     stdscr.clear()  # Clear the screen
 
@@ -95,7 +94,7 @@ def chat(stdscr):
         textbox.stripspaces = True
         
         message = textbox.edit(enter_message).strip()
-        message = f'[{username}]:~$ {message}'
+        message = f'{user} {message}'
         
         if message:
             with lock:
@@ -116,5 +115,3 @@ def chat(stdscr):
                     chat_window.addstr(i+1, 0, msg)
                 chat_window.refresh()
                 chat_window.attroff(curses.color_pair(2))  # Turn off the color attribute
-
-curses.wrapper(chat)

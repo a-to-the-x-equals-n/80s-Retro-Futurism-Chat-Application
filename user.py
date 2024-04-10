@@ -1,29 +1,32 @@
-
+import socket as socket
+import util
 """
 User object for ip addr, port numbers, and username
 """
 class User:
 
-    def __init__(self, ip = 'localhost', port = 8080, username = None):
+    def __init__(self, ip = 'localhost', port = 8080, username = 'default'):
         self.ip = ip
         self.port = port
-        self.username = username
+        self.username = f'[{username}]:~$'
+        self.socket = None
+        self.connection = None
+        self.address = None
 
-    # TODO: Implement get/set functions for ip, port, and username?
 
-    def ip(self):
-        pass
-    def port(self):
-        pass
-    def username(self):
-        pass
+    @util.threaded
+    def start_server(self, connection_event):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
+            server_socket.bind((self.ip, self.port))
+            server_socket.listen()
+            
+            self.connection, self.address = server_socket.accept()
+            connection_event.set()  # Signal that a connection has been made
 
-    # TODO: Each user will have a host server listening for other clients attemption
-    # to connect/message them
-    def server_init(self):
+    def find_server():
         pass
-    def client_init(self):
-        pass
+        
+
     # Return a string representation of the User.username
     def __repr__(self):
         return f'{self.username}'

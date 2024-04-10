@@ -54,7 +54,6 @@ def handle_request(client_socket):
 
 def main():
 
-
     # Create socket
     server_socket = s.socket(s.AF_INET, s.SOCK_STREAM)
 
