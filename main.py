@@ -1,22 +1,21 @@
 import util
 from threading import Event
-from user import User
-import curses
 from gui import GUI, morph, welcome_screen
 import logging
 
 logging.basicConfig(filename = 'app.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+# tail -f app.log
 
 def main():
     
     """
     Main function to initialize the program.
     """
-    # x,y = util.terminal_size()
+    x,y = util.terminal_size()
     
-    # welcome_screen(x,y)
+    welcome_screen(x,y)
 
-    # morph()
+    morph()
 
     with GUI() as gui:
         curr_user, hosting = gui.login()
@@ -70,7 +69,6 @@ def main():
 
     with GUI() as gui:
         gui.chat(curr_user)
-
 
     curr_user.socket.close()
     logging.info(f"{user}: Socket closed.")

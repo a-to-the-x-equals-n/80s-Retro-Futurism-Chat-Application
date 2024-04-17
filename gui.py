@@ -313,10 +313,8 @@ class GUI:
 
 
     def login(self):
-
         curses.curs_set(0)  # Make cursor visible
         # self.stdscr.keypad(True)  # Enable keypad mode
-        
         
         curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_GREEN)
         curses.init_pair(2, curses.COLOR_GREEN, curses.COLOR_BLACK)
@@ -467,16 +465,3 @@ class GUI:
             self.stdscr.refresh()  # Refresh the screen
             time.sleep(2)
             self.stdscr.clear()  # Clear the screen
-
-
-       
-
-
-
-'''
-
-if __name__ == "__main__":
-    with GUI() as gui:
-        gui.main_loop()
-
-'''

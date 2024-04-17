@@ -12,7 +12,6 @@ class User:
         self.port = port
         self.username = f'[{username}]:~$'
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
         
     # Return a string representation of the User.username
     def __str__(self):
@@ -24,7 +23,6 @@ class User:
     def listening(self):
         self.socket.bind((self.ip, self.port))
         self.socket.listen(1)
-
 
     def searching(self):
         server_addr = (self.ip, self.port)
